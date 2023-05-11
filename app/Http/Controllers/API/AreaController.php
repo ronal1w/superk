@@ -4,7 +4,9 @@ namespace App\Http\Controllers\API;
 
 use App\Models\Area;
 use App\Http\Controllers\Controller;
+use GuzzleHttp\Psr7\Response;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
 
 class AreaController extends Controller
 {
@@ -97,8 +99,22 @@ public function mostrarArea($id)
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    /*public function destroy(string $id)
     {
-        //
+            // Encuentra el registro en base al ID
+    $area = Area::findOrFail($id);
+
+    // Elimina el registro
+    $area->delete();
+
+    // Devuelve una respuesta exitosa
+    return response()->json(['nombre'], 200);
+    }*/
+
+    public function destroy($id)
+    {
+        $area = Area::findOrFail($id);
+        $area->delete();
+        return response()->json(null, 204);
     }
 }

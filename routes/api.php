@@ -1,10 +1,13 @@
 <?php
 
+use App\Http\Controllers\API\CategoriaController;
 use App\Http\Controllers\API\AreaController;
 use App\Http\Controllers\AreaControllers;
 use App\Models\Area;
+use App\Models\Categoria;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -30,4 +33,21 @@ Route::get('mostrar-areas', [AreaController::class, 'mostrarAreas']);
 Route::post('crear-areas', [AreaController::class, 'store']);
 //Route::put('/areas/{id}', [AreaController::class, 'update']);
 Route::put('areas/{id}', [AreaController::class, 'update']);
+
+//Route::delete('/areas/{id}', [AreaController::class, 'destroy']);
+Route::delete('/areas/{id}', [AreaController::class, 'destroy']);
+
+
+
+
+
+Route::get('/mostrar-categorias', [CategoriaController::class, 'mostrarCategorias']);
+
+Route::get('/categorias', [CategoriaController::class, 'index']);
+Route::post('/categorias', [CategoriaController::class, 'store']);
+Route::get('/categorias/{id}', [CategoriaController::class, 'show']);
+Route::get('/mostrar-categorias/{id}', [CategoriaController::class, 'mostrarRegistro']);
+
+Route::put('/categorias/{id}', [CategoriaController::class, 'update']);
+Route::delete('/categorias/{id}', [CategoriaController::class, 'destroy']);
 
