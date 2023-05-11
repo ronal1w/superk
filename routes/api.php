@@ -3,6 +3,7 @@
 use App\Http\Controllers\API\CategoriaController;
 use App\Http\Controllers\API\AreaController;
 use App\Http\Controllers\AreaControllers;
+use App\Http\Controllers\ProductoController;
 use App\Models\Area;
 use App\Models\Categoria;
 use Illuminate\Http\Request;
@@ -23,7 +24,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-
+// Rutas de areas
 //Route::get('/area', ['App\Http\Controllers\AreaControllers@indexArea']);
 //Route::get('/area', [AreaControllers::class, 'index']);
 Route::get('areas', [AreaController::class, 'index']);
@@ -40,14 +41,20 @@ Route::delete('/areas/{id}', [AreaController::class, 'destroy']);
 
 
 
-
+//Rutas de areas 
 Route::get('/mostrar-categorias', [CategoriaController::class, 'mostrarCategorias']);
 
 Route::get('/categorias', [CategoriaController::class, 'index']);
 Route::post('/categorias', [CategoriaController::class, 'store']);
 Route::get('/categorias/{id}', [CategoriaController::class, 'show']);
 Route::get('/mostrar-categorias/{id}', [CategoriaController::class, 'mostrarRegistro']);
-
 Route::put('/categorias/{id}', [CategoriaController::class, 'update']);
 Route::delete('/categorias/{id}', [CategoriaController::class, 'destroy']);
 
+// ruta de los productos
+Route::get('/mostrar-producto', [ProductoController::class, 'MostrarPorductos']);
+Route::post('/crea-producto', [ProductoController::class, 'crearProducto']);
+Route::get('mostrar-producto/{id}', [ProductoController::class, 'show']);
+Route::get('/productos/{id}/edit', [ProductoController::class, 'edit']);
+Route::put('/productos/{id}', [ProductoController::class, 'update']);
+Route::delete('/productos/{id}', [ProductoController::class, 'destroy']);
