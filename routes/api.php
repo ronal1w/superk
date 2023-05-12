@@ -5,6 +5,7 @@ use App\Http\Controllers\API\AreaController;
 use App\Http\Controllers\AreaControllers;
 use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\Api\VentaController;
+use App\Http\Controllers\Api\DetalleVentaController;
 use App\Models\Area;
 use App\Models\Categoria;
 use Illuminate\Http\Request;
@@ -66,4 +67,11 @@ Route::post('ventas', [VentaController::class, 'store']);
 Route::get('ventas/{venta}', [VentaController::class, 'show']);
 Route::put('ventas/{venta}', [VentaController::class, 'update']);
 Route::delete('ventas/{venta}', [VentaController::class, 'destroy']);
+
+//Detalle de ventas 
+Route::get('detalle-ventas', [DetalleVentaController::class, 'index']);
+Route::post('detalle-ventas', [DetalleVentaController::class, 'store']);
+Route::get('detalle-ventas/{detalle_venta}', [DetalleVentaController::class, 'show']);
+Route::put('detalle-ventas/{detalle_venta}', [DetalleVentaController::class, 'update']);
+Route::delete('detalle-ventas/{detalle_venta}', [DetalleVentaController::class, 'destroy']);
 
