@@ -4,6 +4,7 @@ use App\Http\Controllers\API\CategoriaController;
 use App\Http\Controllers\API\AreaController;
 use App\Http\Controllers\AreaControllers;
 use App\Http\Controllers\ProductoController;
+use App\Http\Controllers\Api\VentaController;
 use App\Models\Area;
 use App\Models\Categoria;
 use Illuminate\Http\Request;
@@ -58,3 +59,11 @@ Route::get('mostrar-producto/{id}', [ProductoController::class, 'show']);
 Route::get('/productos/{id}/edit', [ProductoController::class, 'edit']);
 Route::put('/productos/{id}', [ProductoController::class, 'update']);
 Route::delete('/productos/{id}', [ProductoController::class, 'destroy']);
+
+//Rutas de las ventas 
+Route::get('ventas', [VentaController::class, 'index']);
+Route::post('ventas', [VentaController::class, 'store']);
+Route::get('ventas/{venta}', [VentaController::class, 'show']);
+Route::put('ventas/{venta}', [VentaController::class, 'update']);
+Route::delete('ventas/{venta}', [VentaController::class, 'destroy']);
+
